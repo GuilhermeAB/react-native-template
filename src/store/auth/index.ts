@@ -27,7 +27,7 @@ const initialState: AuthState = {
   isAuthenticated: false,
 };
 
-const reducer = (action: AuthAction, state: AuthState = initialState): AuthState => {
+const reducer = (state: AuthState = initialState, action: AuthAction): AuthState => {
   switch (action.type) {
     case SIGN_IN:
       return {

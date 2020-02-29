@@ -27,7 +27,7 @@ const initialState: ThemeState = {
   style: light,
 };
 
-const reducer = (action: ThemeAction, state: ThemeState = initialState): ThemeState => {
+const reducer = (state: ThemeState = initialState, action: ThemeAction): ThemeState => {
   switch (action.type) {
     case Themes.LIGHT_THEME:
       return {

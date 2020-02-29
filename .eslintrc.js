@@ -86,6 +86,7 @@ module.exports = {
           singleline: { delimiter: 'comma', requireLast: true, },
         }],
         '@typescript-eslint/consistent-type-definitions': 0,
+        '@typescript-eslint/default-param-last': 0,
       },
     },
   ],
