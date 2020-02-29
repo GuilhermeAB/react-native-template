@@ -3,9 +3,8 @@ import { RowProps } from 'react-native-easy-grid';
 import { StylesProps } from 'styled-system';
 import { Line } from './styles';
 
-const Row = (props?: RowProps & StylesProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
+const Row = (props?: RowProps & StylesProps): any =>
   <Line {...props} />
-);
+;
 
 export default Row;

@@ -9,24 +9,24 @@ import FlashMessage from 'react-native-flash-message';
 
 export type Props = {
   theme: ThemeState,
-}
+};
 
-const AppWrapper = ({ theme }: Props) => (
+const AppWrapper = ({ theme }: Props): any =>
   <PaperProvider theme={theme.style}>
     <NavigationContainer>
       <AppNavigator />
       <FlashMessage position='top' />
     </NavigationContainer>
   </PaperProvider>
-);
+;
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState): any => ({
   theme: state.theme,
 });
 
 const App = connect(mapStateToProps)(AppWrapper);
 
-export default function () {
+export default function (): any {
   return (
     <StoreProvider store={store}>
       <App />

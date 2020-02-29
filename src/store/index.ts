@@ -12,7 +12,7 @@ export type AppState = {
   theme: ThemeState,
   loading: LoadingState,
   auth: AuthState,
-}
+};
 
 const combinedReducers = combineReducers(
   {
@@ -22,14 +22,14 @@ const combinedReducers = combineReducers(
         key: 'theme',
         storage: AsyncStorage,
       },
-      theme,
+      theme as any,
     ),
     auth: persistReducer(
       {
         key: 'auth',
         storage: AsyncStorage,
       },
-      auth,
+      auth as any,
     ),
   },
 );

@@ -25,7 +25,12 @@ module.exports = {
     },
   },
   settings: {
-    'import/resolver': 'react-native',
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx', '.jsx','.js', '.json'],
+      },
+      'babel-module': {},
+    },
   },
   rules: {
     'no-console': isProduction ? 'error' : 'off',
@@ -44,6 +49,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'eslint-comments/no-unlimited-disable': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/extensions': 0,
   },
   overrides: [
     // Jest - tests
@@ -79,6 +85,7 @@ module.exports = {
           multiline: { delimiter: 'comma', requireLast: true, },
           singleline: { delimiter: 'comma', requireLast: true, },
         }],
+        '@typescript-eslint/consistent-type-definitions': 0,
       },
     },
   ],

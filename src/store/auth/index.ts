@@ -4,7 +4,7 @@ import { showMessage } from 'react-native-flash-message';
 
 export type AuthState = {
   isAuthenticated: boolean,
-}
+};
 
 const SIGN_IN = 'SIGN_IN';
 const SIGN_OUT = 'SIGN_OUT';
@@ -12,12 +12,12 @@ const SIGN_OUT = 'SIGN_OUT';
 export type SignInAction = {
   type: 'SIGN_IN',
   auth: AuthState,
-}
+};
 
 export type SignOutAction = {
   type: 'SIGN_OUT',
   auth: AuthState,
-}
+};
 
 // Reducer
 
@@ -27,18 +27,18 @@ const initialState: AuthState = {
   isAuthenticated: false,
 };
 
-const reducer = (state: AuthState = initialState, action: AuthAction): AuthState => {
+const reducer = (action: AuthAction, state: AuthState = initialState): AuthState => {
   switch (action.type) {
-  case SIGN_IN:
-    return {
-      isAuthenticated: true,
-    };
-  case SIGN_OUT:
-    return {
-      isAuthenticated: false,
-    };
-  default:
-    return state;
+    case SIGN_IN:
+      return {
+        isAuthenticated: true,
+      };
+    case SIGN_OUT:
+      return {
+        isAuthenticated: false,
+      };
+    default:
+      return state;
   }
 };
 

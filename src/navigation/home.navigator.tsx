@@ -9,9 +9,9 @@ import { ThemeState, Themes } from 'store/theme';
 import AppRoute from './app-routes';
 
 type HomeNavigatorParams = {
-  [AppRoute.HOME]: undefined;
-  [AppRoute.SETTINGS]: undefined;
-}
+  [AppRoute.HOME]: undefined,
+  [AppRoute.SETTINGS]: undefined,
+};
 
 export interface HomeProps {
   navigation: DrawerNavigationProp<HomeNavigatorParams, AppRoute.HOME>,
@@ -23,19 +23,18 @@ export interface HomeProps {
 
 export interface SettingsProps {
   navigation: DrawerNavigationProp<HomeNavigatorParams, AppRoute.SETTINGS>,
-  // theme?: ThemeState,
 }
 
 const Drawer = createDrawerNavigator<HomeNavigatorParams>();
 
-const HomeNavigator = (): React.ReactElement => (
+const HomeNavigator = (): React.ReactElement =>
   <Drawer.Navigator initialRouteName={AppRoute.HOME}>
     <Drawer.Screen
       name={AppRoute.HOME}
       component={Home}
       options={{
         title: 'Home',
-        drawerIcon: () => (<Icon name='plus' />),
+        drawerIcon: (): Element => <Icon name='plus' />,
       }}
     />
     <Drawer.Screen
@@ -43,9 +42,10 @@ const HomeNavigator = (): React.ReactElement => (
       component={Settings}
       options={{
         title: 'Settings',
+        drawerIcon: (): Element => <Icon name='plus' />,
       }}
     />
   </Drawer.Navigator>
-);
+;
 
 export default HomeNavigator;

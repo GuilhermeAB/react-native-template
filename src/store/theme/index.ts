@@ -12,11 +12,11 @@ export enum Themes {
 export type ThemeState = {
   name: Themes,
   style: Theme,
-}
+};
 
 export type ChangeThemeAction = {
-  type: Themes;
-}
+  type: Themes,
+};
 
 // Reducer
 
@@ -27,18 +27,18 @@ const initialState: ThemeState = {
   style: light,
 };
 
-const reducer = (state: ThemeState = initialState, action: ThemeAction): ThemeState => {
+const reducer = (action: ThemeAction, state: ThemeState = initialState): ThemeState => {
   switch (action.type) {
-  case Themes.LIGHT_THEME:
-    return {
-      name: Themes.LIGHT_THEME, style: light,
-    };
-  case Themes.DARK_THEME:
-    return {
-      name: Themes.DARK_THEME, style: dark,
-    };
-  default:
-    return state;
+    case Themes.LIGHT_THEME:
+      return {
+        name: Themes.LIGHT_THEME, style: light,
+      };
+    case Themes.DARK_THEME:
+      return {
+        name: Themes.DARK_THEME, style: dark,
+      };
+    default:
+      return state;
   }
 };
 

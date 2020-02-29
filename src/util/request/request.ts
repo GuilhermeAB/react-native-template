@@ -12,11 +12,11 @@ export type Method = 'GET' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'POST' | 'PUT' | 'P
 //   return Promise.reject(error);
 // });
 
-export async function request (config: AxiosRequestConfig) {
+export async function request (config: AxiosRequestConfig): Promise<any> {
   return axios({
     url: config.url,
-    method: config.method || 'POST',
-    baseURL: config.baseURL || REQUEST_BASE_URL,
+    method: config.method ?? 'POST',
+    baseURL: config.baseURL ?? REQUEST_BASE_URL,
     transformRequest: config.transformRequest,
     transformResponse: config.transformResponse,
     headers: config.headers || { 'Content-Type': 'application/json' },
@@ -28,7 +28,7 @@ export async function request (config: AxiosRequestConfig) {
     withCredentials: config.withCredentials,
     adapter: config.adapter,
     auth: config.auth,
-    responseType: config.responseType || 'json',
+    responseType: config.responseType ?? 'json',
     xsrfCookieName: config.xsrfCookieName,
     xsrfHeaderName: config.xsrfHeaderName,
     onUploadProgress: config.onUploadProgress,
@@ -43,5 +43,3 @@ export async function request (config: AxiosRequestConfig) {
     cancelToken: config.cancelToken,
   });
 }
-
-export const x = 1;

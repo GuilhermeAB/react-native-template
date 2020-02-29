@@ -8,7 +8,7 @@ import {
 import { unzip } from 'react-native-zip-archive';
 import { Card, Text, Button } from 'react-native-paper';
 
-const Settings = (props: SettingsProps): Element => {
+const Settings = (props: SettingsProps): any => {
   const { navigation } = props;
 
   async function getData (): Promise<any> {

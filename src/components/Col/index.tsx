@@ -3,9 +3,8 @@ import { ColProps } from 'react-native-easy-grid';
 import { StylesProps } from 'styled-system';
 import { Column } from './styles';
 
-const Col = (props?: ColProps & StylesProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
+const Col = (props?: ColProps & StylesProps): any =>
   <Column {...props} />
-);
+;
 
 export default Col;

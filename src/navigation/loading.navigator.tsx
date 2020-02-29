@@ -7,8 +7,8 @@ import AppRoute from './app-routes';
 import { AppNavigatorParams } from './app.navigator';
 
 type LoadingNavigatorParams = AppNavigatorParams & {
-  [AppRoute.LOADING]: undefined;
-}
+  [AppRoute.LOADING]: undefined,
+};
 
 export interface LoadingProps {
   navigation?: StackNavigationProp<LoadingNavigatorParams, AppRoute.LOADING>,
@@ -19,10 +19,10 @@ export interface LoadingProps {
 
 const Stack = createStackNavigator<LoadingNavigatorParams>();
 
-const LoadingNavigator = (): React.ReactElement => (
+const LoadingNavigator = (): React.ReactElement =>
   <Stack.Navigator headerMode='none' initialRouteName={AppRoute.LOADING}>
     <Stack.Screen name={AppRoute.LOADING} component={Loading} />
   </Stack.Navigator>
-);
+;
 
 export default LoadingNavigator;

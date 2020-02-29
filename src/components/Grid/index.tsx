@@ -3,9 +3,8 @@ import { ColProps } from 'react-native-easy-grid';
 import { StylesProps } from 'styled-system';
 import { Container } from './styles';
 
-const Grid = (props?: ColProps & StylesProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
+const Grid = (props?: ColProps & StylesProps): any =>
   <Container {...props} />
-);
+;
 
 export default Grid;

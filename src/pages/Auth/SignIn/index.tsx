@@ -12,7 +12,7 @@ import {
 import { Grid, Col } from 'react-native-easy-grid';
 import styles from './styles';
 
-const SignIn = ({ signIn }: SignInProps) => {
+const SignIn = ({ signIn }: SignInProps): any => {
   const [userName, onChangeUserName] = React.useState();
   const [userPassword, onChangeUserPassword] = React.useState();
 
@@ -32,7 +32,7 @@ const SignIn = ({ signIn }: SignInProps) => {
               autoCompleteType='username'
               clearButtonMode='while-editing'
               label='Username'
-              onChangeText={text => onChangeUserName(text)}
+              onChangeText={(text: string): void => onChangeUserName(text)}
               value={userName}
             />
             <TextInput
@@ -41,11 +41,11 @@ const SignIn = ({ signIn }: SignInProps) => {
               clearButtonMode='while-editing'
               returnKeyType='done'
               label='Password'
-              onChangeText={text => onChangeUserPassword(text)}
+              onChangeText={(text: string): void => onChangeUserPassword(text)}
               value={userPassword}
             />
 
-            <Button mode='contained' onPress={() => logIn()}>
+            <Button mode='contained' onPress={(): void => logIn()}>
               <Text>Login</Text>
             </Button>
           </Card.Content>
@@ -55,8 +55,8 @@ const SignIn = ({ signIn }: SignInProps) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  signIn: () => {
+const mapDispatchToProps = (dispatch: Dispatch): any => ({
+  signIn: (): void => {
     dispatch(signInAction());
   },
 });

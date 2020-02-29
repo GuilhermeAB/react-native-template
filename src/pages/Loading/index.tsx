@@ -7,7 +7,7 @@ import { AppState } from 'store/';
 import { ActivityIndicator } from 'react-native-paper';
 import { Container } from './styles';
 
-const Loading = ({ loading, toggleLoading }: LoadingProps) => {
+const Loading = ({ loading, toggleLoading }: LoadingProps): any => {
   useEffect(() => {
     if (toggleLoading) {
       setTimeout(() => toggleLoading(), 1000);
@@ -21,13 +21,13 @@ const Loading = ({ loading, toggleLoading }: LoadingProps) => {
   );
 };
 
-const mapStateToProp = (state: AppState, props: LoadingProps) => ({
+const mapStateToProp = (state: AppState, props: LoadingProps): any => ({
   loading: state.loading,
   props: props,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  toggleLoading: () => {
+const mapDispatchToProps = (dispatch: Dispatch): any => ({
+  toggleLoading: (): void => {
     dispatch(toggleLoadingAction());
   },
 });

@@ -23,10 +23,10 @@ import AppRoute from './app-routes';
 // firebase.initializeApp(firebaseConfig);
 
 export type AppNavigatorParams = {
-  [AppRoute.AUTH]: undefined;
-  [AppRoute.HOME]: undefined;
-  [AppRoute.LOADING]: undefined;
-}
+  [AppRoute.AUTH]: undefined,
+  [AppRoute.HOME]: undefined,
+  [AppRoute.LOADING]: undefined,
+};
 
 export interface AppProps {
   auth: AuthState,
@@ -37,12 +37,12 @@ const AppNavigator = ({ loading, auth }: AppProps): React.ReactElement => {
   const { isLoading } = loading;
   const { isAuthenticated } = auth;
 
-  return isLoading ? (
+  return isLoading ?
     <LoadingNavigator />
-  ) : isAuthenticated ? <HomeNavigator /> : <AuthNavigator />;
+    : isAuthenticated ? <HomeNavigator /> : <AuthNavigator />;
 };
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState): any => ({
   auth: state.auth,
   loading: state.loading,
 });

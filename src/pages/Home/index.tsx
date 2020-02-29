@@ -10,12 +10,12 @@ import { Card, Text, Button } from 'react-native-paper';
 
 const Home = ({
   navigation, signOut, changeTheme, theme,
-}: HomeProps) => {
-  function toLogin () {
+}: HomeProps): any => {
+  function toLogin (): void {
     navigation.navigate(AppRoute.SETTINGS);
   }
 
-  function toggleTheme () {
+  function toggleTheme (): void {
     if (theme.name === Themes.LIGHT_THEME) {
       changeTheme(Themes.DARK_THEME);
     } else {
@@ -27,13 +27,13 @@ const Home = ({
     <Card>
       <Card.Content>
         <Text> Home ;D</Text>
-        <Button mode='contained' onPress={() => toLogin()}>
+        <Button mode='contained' onPress={(): void => toLogin()}>
           <Text>Settings</Text>
         </Button>
-        <Button mode='contained' onPress={() => toggleTheme()}>
+        <Button mode='contained' onPress={(): void => toggleTheme()}>
           <Text>Toggle Theme</Text>
         </Button>
-        <Button mode='contained' onPress={() => signOut()}>
+        <Button mode='contained' onPress={(): void => signOut()}>
           <Text>Sign Out</Text>
         </Button>
       </Card.Content>
@@ -41,16 +41,16 @@ const Home = ({
   );
 };
 
-const mapStateToProps = (state: AppState, props: HomeProps) => ({
+const mapStateToProps = (state: AppState, props: HomeProps): any => ({
   theme: state.theme,
   props: props,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  changeTheme: (name: Themes) => {
+const mapDispatchToProps = (dispatch: Dispatch): any => ({
+  changeTheme: (name: Themes): void => {
     dispatch(changeThemeAction(name));
   },
-  signOut: () => {
+  signOut: (): void => {
     dispatch(signOutAction());
   },
 });
