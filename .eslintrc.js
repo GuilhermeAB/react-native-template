@@ -50,6 +50,8 @@ module.exports = {
     'eslint-comments/no-unlimited-disable': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/extensions': 0,
+    'react-native/no-raw-text': 0,
+    'global-require': 0,
   },
   overrides: [
     // Jest - tests
@@ -87,6 +89,7 @@ module.exports = {
         }],
         '@typescript-eslint/consistent-type-definitions': 0,
         '@typescript-eslint/default-param-last': 0,
+        '@typescript-eslint/no-require-imports': 0,
       },
     },
   ],

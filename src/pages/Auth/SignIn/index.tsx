@@ -4,13 +4,15 @@ import { Dispatch } from 'redux';
 import { signInAction } from 'store/auth';
 import { SignInProps } from 'navigation/auth.navigator';
 import {
-  Card,
-  TextInput,
-  Button,
-  Text,
+  Headline,
+  Caption,
 } from 'react-native-paper';
-import { Grid, Col } from 'react-native-easy-grid';
-import styles from './styles';
+import { Grid, Col, Row } from 'components/Grid';
+import Button from 'components/Btn';
+import TextField from 'components/Inputs/TextField';
+import { AppState } from 'store/';
+import DotBackground from 'components/DotBackground';
+import { SignInLogo } from './styles';
 
 const SignIn = ({ signIn }: SignInProps): any => {
   const [userName, onChangeUserName] = React.useState();
@@ -23,37 +25,56 @@ const SignIn = ({ signIn }: SignInProps): any => {
   }
 
   return (
-    <Grid>
-      <Col style={styles.col}>
-        <Card elevation={0} style={styles.card}>
-          <Card.Title title='Login' />
-          <Card.Content>
-            <TextInput
+    <DotBackground>
+      <Grid width={[1]} d='flex' alignItems='center'>
+        <Col px='20px'>
+          <Row alignItems='center' justifyContent='center' height={200}>
+            <SignInLogo width={150} height={150} />
+          </Row>
+          <Col>
+            <Headline>Login</Headline>
+            <TextField
               autoCompleteType='username'
               clearButtonMode='while-editing'
               label='Username'
               onChangeText={(text: string): void => onChangeUserName(text)}
               value={userName}
             />
-            <TextInput
+            <TextField
               autoCompleteType='password'
               secureTextEntry={true}
               clearButtonMode='while-editing'
               returnKeyType='done'
               label='Password'
+              mt='1'
               onChangeText={(text: string): void => onChangeUserPassword(text)}
               value={userPassword}
             />
 
-            <Button mode='contained' onPress={(): void => logIn()}>
-              <Text>Login</Text>
+            <Button mode='text'>
+              <Caption>Forgot your password?</Caption>
             </Button>
-          </Card.Content>
-        </Card>
-      </Col>
-    </Grid>
+
+            <Button
+              mt='3'
+              mode='contained'
+              onPress={(): void => logIn()}
+            >
+              Login
+            </Button>
+
+            <Button mt='1' mode='text'>Don&apos;t have an account? Sign up</Button>
+          </Col>
+        </Col>
+      </Grid>
+    </DotBackground>
   );
 };
+
+const mapStateToProps = (state: AppState, props: SignInProps): any => ({
+  theme: state.theme,
+  props: props,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
   signIn: (): void => {
@@ -61,4 +82,4 @@ const mapDispatchToProps = (dispatch: Dispatch): any => ({
   },
 });
 
-export default connect(undefined, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

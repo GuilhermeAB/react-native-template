@@ -1,10 +1,12 @@
 import React from 'react';
 import { ColProps } from 'react-native-easy-grid';
 import { StylesProps } from 'styled-system';
-import { Column } from './styles';
+import Column from './styles';
 
-const Col = (props?: ColProps & StylesProps): any =>
-  <Column {...props} />
+const Col = (props?: ColProps & StylesProps & any): any =>
+  <Column {...props}>
+    {props?.children}
+  </Column>
 ;
 
 export default Col;

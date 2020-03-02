@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteProp } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import SignIn from 'pages/Auth/SignIn';
+import { ThemeState } from 'store/theme';
 import AppRoute from './app-routes';
 import { AppNavigatorParams } from './app.navigator';
 
@@ -12,6 +13,7 @@ type AuthNavigatorParams = AppNavigatorParams & {
 export interface SignInProps {
   navigation: StackNavigationProp<AuthNavigatorParams, AppRoute.SIGN_IN>,
   route: RouteProp<AuthNavigatorParams, AppRoute.SIGN_IN>,
+  theme: ThemeState,
   signIn?: Function,
 }
 

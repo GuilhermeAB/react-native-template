@@ -1,12 +1,10 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components';
+import { space, layout, color } from 'styled-system';
+import Logo from 'src/assets/male_avatar.svg';
 
-export default StyleSheet.create({
-  card: {
-    width: '100%',
-  },
-  col: {
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-});
+// eslint-disable-next-line import/prefer-default-export
+export const SignInLogo = styled(Logo)`
+    ${space};
+    ${layout};
+    ${color}
+`;
