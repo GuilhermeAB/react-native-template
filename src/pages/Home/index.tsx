@@ -6,7 +6,10 @@ import { changeThemeAction, Themes } from 'store/theme';
 import { AppState } from 'store/';
 import { HomeProps } from 'navigation/home.navigator';
 import AppRoute from 'navigation/app-routes';
-import { Card, Text, Button } from 'react-native-paper';
+import DotBackground from 'components/DotBackground';
+import { Grid, Col } from 'components/Grid';
+import Button from 'components/Button';
+import { Appbar } from 'react-native-paper';
 
 const Home = ({
   navigation, signOut, changeTheme, theme,
@@ -24,20 +27,19 @@ const Home = ({
   }
 
   return (
-    <Card>
-      <Card.Content>
-        <Text> Home ;D</Text>
-        <Button mode='contained' onPress={(): void => toLogin()}>
-          <Text>Settings</Text>
-        </Button>
-        <Button mode='contained' onPress={(): void => toggleTheme()}>
-          <Text>Toggle Theme</Text>
-        </Button>
-        <Button mode='contained' onPress={(): void => signOut()}>
-          <Text>Sign Out</Text>
-        </Button>
-      </Card.Content>
-    </Card>
+    <DotBackground>
+      <Appbar>
+        <Appbar.Action icon='menu' onPress={(): void => navigation.openDrawer()} />
+        <Appbar.Content title='Home' />
+      </Appbar>
+      <Grid width={[1]}>
+        <Col px='20px'>
+          <Button mt='1' mode='contained' onPress={(): void => toLogin()}>Settings</Button>
+          <Button mt='1' mode='contained' onPress={(): void => toggleTheme()}>Toggle Theme</Button>
+          <Button mt='1' mode='contained' onPress={(): void => signOut()}>Sign Out</Button>
+        </Col>
+      </Grid>
+    </DotBackground>
   );
 };
 

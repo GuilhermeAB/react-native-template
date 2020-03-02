@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteProp } from '@react-navigation/core';
-import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationProp, StackNavigationOptions } from '@react-navigation/stack';
 import SignIn from 'pages/Auth/SignIn';
 import { ThemeState } from 'store/theme';
 import AppRoute from './app-routes';
@@ -19,9 +19,13 @@ export interface SignInProps {
 
 const Stack = createStackNavigator<AuthNavigatorParams>();
 
+const screenOptions: StackNavigationOptions = {
+  animationTypeForReplace: 'pop',
+};
+
 const AuthNavigator = (): React.ReactElement =>
   <Stack.Navigator headerMode='none' initialRouteName={AppRoute.SIGN_IN}>
-    <Stack.Screen name={AppRoute.SIGN_IN} component={SignIn} />
+    <Stack.Screen name={AppRoute.SIGN_IN} component={SignIn} options={screenOptions} />
   </Stack.Navigator>
 ;
 

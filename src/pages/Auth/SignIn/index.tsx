@@ -8,7 +8,7 @@ import {
   Caption,
 } from 'react-native-paper';
 import { Grid, Col, Row } from 'components/Grid';
-import Button from 'components/Btn';
+import Button from 'components/Button';
 import TextField from 'components/Inputs/TextField';
 import { AppState } from 'store/';
 import DotBackground from 'components/DotBackground';
