@@ -5,6 +5,7 @@ import { toggleLoadingAction } from 'store/loading';
 import { LoadingProps } from 'navigation/loading.navigator';
 import { AppState } from 'store/';
 import { ActivityIndicator } from 'react-native-paper';
+import DotBackground from 'components/DotBackground';
 import { Container } from './styles';
 
 const Loading = ({ loading, toggleLoading }: LoadingProps): any => {
@@ -15,9 +16,11 @@ const Loading = ({ loading, toggleLoading }: LoadingProps): any => {
   }, [loading, toggleLoading]);
 
   return (
-    <Container>
-      <ActivityIndicator size='large' />
-    </Container>
+    <DotBackground>
+      <Container>
+        <ActivityIndicator size='large' />
+      </Container>
+    </DotBackground>
   );
 };
 

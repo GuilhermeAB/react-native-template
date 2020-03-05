@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { signInAction } from 'store/auth';
@@ -15,8 +15,8 @@ import DotBackground from 'components/DotBackground';
 import { SignInLogo } from './styles';
 
 const SignIn = ({ signIn }: SignInProps): any => {
-  const [userName, onChangeUserName] = React.useState();
-  const [userPassword, onChangeUserPassword] = React.useState();
+  const [userName, onChangeUserName] = useState();
+  const [userPassword, onChangeUserPassword] = useState();
 
   function logIn (): void {
     if (signIn) {

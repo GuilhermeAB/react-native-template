@@ -6,7 +6,7 @@ import { AppState } from 'store/';
 import { ImageBackgroundProps, StyleSheet } from 'react-native';
 import ImageBackground from './styles';
 
-export type DotBackgroundProps = ImageBackgroundProps & StylesProps & any & ThemeState;
+export type DotBackgroundProps = ImageBackgroundProps & StylesProps & ThemeState & any;
 
 const styles = StyleSheet.create({
   imageBackground: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 });
 
 const DotBackground = (props?: DotBackgroundProps): any =>
-  <ImageBackground style={styles.imageBackground} source={require('../../assets/background_dot.png')} resizeMode='repeat' {...props}>
+  <ImageBackground style={styles.imageBackground} source={props.theme.style.dark ? undefined : require('../../assets/background_dot.png')} resizeMode='repeat' {...props}>
     {props?.children}
   </ImageBackground>
 ;

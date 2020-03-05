@@ -1,51 +1,43 @@
 import React from 'react';
-import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { RouteProp } from '@react-navigation/core';
+import { createBottomTabNavigator, BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import Home from 'pages/Home';
 import Settings from 'pages/Settings';
-// import { ThemeState, Themes } from 'store/theme';
-import { ThemeState, Themes } from 'store/theme';
+import Account from 'pages/Account';
 import AppRoute from './app-routes';
+import HomeTabNavigator from './components/HomeTabNavigator';
 
-type HomeNavigatorParams = {
+export type HomeNavigatorParams = {
   [AppRoute.HOME]: undefined,
   [AppRoute.SETTINGS]: undefined,
+  [AppRoute.ACCOUNT]: undefined,
 };
 
-export interface HomeProps {
-  navigation: DrawerNavigationProp<HomeNavigatorParams, AppRoute.HOME>,
-  route: RouteProp<HomeNavigatorParams, AppRoute.HOME>,
-  theme: ThemeState,
-  changeTheme: (name: Themes) => void,
-  signOut: () => void,
-}
-
-export interface SettingsProps {
-  navigation: DrawerNavigationProp<HomeNavigatorParams, AppRoute.SETTINGS>,
-}
-
-const Drawer = createDrawerNavigator<HomeNavigatorParams>();
+const TabNavigator = createBottomTabNavigator<HomeNavigatorParams>();
 
 const HomeNavigator = (): React.ReactElement =>
-  <Drawer.Navigator initialRouteName={AppRoute.HOME}>
-    <Drawer.Screen
+  <TabNavigator.Navigator tabBar={(props: BottomTabBarProps): React.ReactElement => <HomeTabNavigator {...props}/>}>
+    <TabNavigator.Screen
       name={AppRoute.HOME}
       component={Home}
       options={{
         title: 'Home',
-        drawerIcon: (): Element => <Icon name='plus' />,
       }}
     />
-    <Drawer.Screen
+    <TabNavigator.Screen
       name={AppRoute.SETTINGS}
       component={Settings}
       options={{
         title: 'Settings',
-        drawerIcon: (): Element => <Icon name='plus' />,
       }}
     />
-  </Drawer.Navigator>
+    <TabNavigator.Screen
+      name={AppRoute.ACCOUNT}
+      component={Account}
+      options={{
+        title: 'Account',
+      }}
+    />
+  </TabNavigator.Navigator>
 ;
 
 export default HomeNavigator;

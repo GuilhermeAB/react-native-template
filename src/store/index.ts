@@ -17,7 +17,13 @@ export type AppState = {
 const combinedReducers = combineReducers(
   {
     loading: loading,
-    theme: theme,
+    theme: persistReducer(
+      {
+        key: 'theme',
+        storage: AsyncStorage,
+      },
+      theme as any,
+    ),
     auth: persistReducer(
       {
         key: 'auth',

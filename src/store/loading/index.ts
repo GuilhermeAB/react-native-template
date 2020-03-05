@@ -24,8 +24,6 @@ const initialState: LoadingState = {
 
 // TODO: Fix type
 const reducer = (state: LoadingState = initialState, action: LoadingAction): LoadingState => {
-  console.log(action);
-  console.log(state);
   switch (action.type) {
     case SHOW_LOADING:
       return { isLoading: true };

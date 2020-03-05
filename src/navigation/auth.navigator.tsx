@@ -20,7 +20,6 @@ export interface SignInProps {
 const Stack = createStackNavigator<AuthNavigatorParams>();
 
 const screenOptions: StackNavigationOptions = {
-  animationTypeForReplace: 'pop',
 };
 
 const AuthNavigator = (): React.ReactElement =>

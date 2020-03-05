@@ -19,6 +19,7 @@ export async function request (config: AxiosRequestConfig): Promise<any> {
     baseURL: config.baseURL ?? REQUEST_BASE_URL,
     transformRequest: config.transformRequest,
     transformResponse: config.transformResponse,
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     headers: config.headers || { 'Content-Type': 'application/json' },
     params: config.params,
     paramsSerializer: config.paramsSerializer,
