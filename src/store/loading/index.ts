@@ -9,21 +9,21 @@ export type LoadingState = {
 const SHOW_LOADING = 'SHOW_LOADING';
 const HIDE_LOADING = 'HIDE_LOADING';
 
-export type ToggleLoadingAction = {
+export type ToggleLoadingActionType = {
   type: 'SHOW_LOADING' | 'HIDE_LOADING',
   loading: LoadingState,
 };
 
 // Reducer
 
-export type LoadingAction = ToggleLoadingAction;
+export type LoadingActionType = ToggleLoadingActionType;
 
 const initialState: LoadingState = {
   isLoading: true,
 };
 
 // TODO: Fix type
-const reducer = (state: LoadingState = initialState, action: LoadingAction): LoadingState => {
+const reducer = (state: LoadingState = initialState, action: LoadingActionType): LoadingState => {
   switch (action.type) {
     case SHOW_LOADING:
       return { isLoading: true };
@@ -38,7 +38,7 @@ export default reducer;
 
 // Actions
 
-export const toggleLoadingAction = (): ToggleLoadingAction => {
+export const ToggleLoadingAction = (): ToggleLoadingActionType => {
   const { isLoading } = store.getState().loading;
 
   return {

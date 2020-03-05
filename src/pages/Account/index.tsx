@@ -2,7 +2,7 @@ import React from 'react';
 import DotBackground from 'components/DotBackground';
 import { Grid, Col } from 'components/Grid';
 import Button from 'components/Button';
-import { Themes, ThemeState, changeThemeAction } from 'store/theme';
+import { Themes, ThemeState, ChangeThemeAction } from 'store/theme';
 import { AppState } from 'store/';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -44,7 +44,7 @@ const mapStateToProps = (state: AppState, props: AccountProps): any => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
   changeTheme: (name: Themes): void => {
-    dispatch(changeThemeAction(name));
+    dispatch(ChangeThemeAction(name));
   },
 });
 

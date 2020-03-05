@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { signInAction } from 'store/auth';
+import { SignInAction } from 'store/auth';
 import { SignInProps } from 'navigation/auth.navigator';
 import {
   Headline,
@@ -81,7 +81,7 @@ const mapStateToProps = (state: AppState, props: SignInProps): any => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
   signIn: (): void => {
-    dispatch(signInAction());
+    dispatch(SignInAction());
   },
 });
 

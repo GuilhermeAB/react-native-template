@@ -1,4 +1,5 @@
 import { showMessage } from 'react-native-flash-message';
+import i18n from 'i18n';
 
 // Action Types
 
@@ -9,19 +10,19 @@ export type AuthState = {
 const SIGN_IN = 'SIGN_IN';
 const SIGN_OUT = 'SIGN_OUT';
 
-export type SignInAction = {
+export type SignInActionType = {
   type: 'SIGN_IN',
   auth: AuthState,
 };
 
-export type SignOutAction = {
+export type SignOutActionType = {
   type: 'SIGN_OUT',
   auth: AuthState,
 };
 
 // Reducer
 
-export type AuthAction = SignInAction | SignOutAction;
+export type AuthAction = SignInActionType | SignOutActionType;
 
 const initialState: AuthState = {
   isAuthenticated: false,
@@ -46,10 +47,9 @@ export default reducer;
 
 // Actions
 
-export const signInAction = (): AuthAction => {
+export const SignInAction = (): AuthAction => {
   showMessage({
-    message: 'Bem Vindo!',
-    description: 'Ola, {user}',
+    message: i18n.t('WELCOME'),
     icon: 'success',
     type: 'success',
     duration: 1500,
@@ -63,7 +63,7 @@ export const signInAction = (): AuthAction => {
   };
 };
 
-export const signOutAction = (): AuthAction => ({
+export const SignOutAction = (): AuthAction => ({
   type: SIGN_OUT,
   auth: {
     isAuthenticated: false,

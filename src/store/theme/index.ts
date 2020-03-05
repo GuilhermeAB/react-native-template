@@ -14,20 +14,20 @@ export type ThemeState = {
   style: Theme,
 };
 
-export type ChangeThemeAction = {
+export type ChangeThemeActionType = {
   type: Themes,
 };
 
 // Reducer
 
-export type ThemeAction = ChangeThemeAction;
+export type ThemeActionType = ChangeThemeActionType;
 
 export const initialState: ThemeState = {
   name: Themes.LIGHT_THEME,
   style: light,
 };
 
-const reducer = (state: ThemeState = initialState, action: ThemeAction): ThemeState => {
+const reducer = (state: ThemeState = initialState, action: ThemeActionType): ThemeState => {
   switch (action.type) {
     case Themes.LIGHT_THEME:
       return {
@@ -46,6 +46,6 @@ export default reducer;
 
 // Actions
 
-export const changeThemeAction = (name: Themes): ChangeThemeAction => ({
+export const ChangeThemeAction = (name: Themes): ChangeThemeActionType => ({
   type: name,
 });

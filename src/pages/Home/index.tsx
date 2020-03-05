@@ -1,41 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { signOutAction } from 'store/auth';
+import { SignOutAction } from 'store/auth';
 import DotBackground from 'components/DotBackground';
 import { Grid, Col } from 'components/Grid';
 import Button from 'components/Button';
+import { useTranslation } from 'react-i18next';
 
 const Home = ({
   signOut,
 }: any): any => {
-  // function toLogin (): void {
-  //   navigation.navigate(AppRoute.SETTINGS);
-  // }
+  const { t } = useTranslation();
 
 
   return (
     <DotBackground>
       <Grid width={[1]}>
         <Col px='20px'>
-          <Button mt='1' mode='contained' onPress={(): void => signOut()}>Sign Out</Button>
+          <Button mt='1' mode='contained' onPress={(): void => signOut()}>
+            {t('SIGN_OUT')}
+          </Button>
         </Col>
       </Grid>
     </DotBackground>
   );
 };
 
-// const mapStateToProps = (state: AppState, props: HomeProps): any => ({
-//   theme: state.theme,
-//   props: props,
-// });
-
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
-  // changeTheme: (name: Themes): void => {
-  //   dispatch(changeThemeAction(name));
-  // },
   signOut: (): void => {
-    dispatch(signOutAction());
+    dispatch(SignOutAction());
   },
 });
 

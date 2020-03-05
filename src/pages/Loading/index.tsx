@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { toggleLoadingAction } from 'store/loading';
+import { ToggleLoadingAction } from 'store/loading';
 import { LoadingProps } from 'navigation/loading.navigator';
 import { AppState } from 'store/';
 import { ActivityIndicator } from 'react-native-paper';
@@ -31,7 +31,7 @@ const mapStateToProp = (state: AppState, props: LoadingProps): any => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
   toggleLoading: (): void => {
-    dispatch(toggleLoadingAction());
+    dispatch(ToggleLoadingAction());
   },
 });
 
