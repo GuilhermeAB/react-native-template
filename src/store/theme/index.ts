@@ -22,7 +22,7 @@ export type ChangeThemeAction = {
 
 export type ThemeAction = ChangeThemeAction;
 
-const initialState: ThemeState = {
+export const initialState: ThemeState = {
   name: Themes.LIGHT_THEME,
   style: light,
 };

@@ -29,13 +29,13 @@ export type AppNavigatorParams = {
 };
 
 export interface AppProps {
-  auth: AuthState,
-  loading: LoadingState,
+  auth?: AuthState,
+  loading?: LoadingState,
 }
 
 const AppNavigator = ({ loading, auth }: AppProps): React.ReactElement => {
-  const { isLoading } = loading;
-  const { isAuthenticated } = auth;
+  const { isLoading } = loading ?? { isLoading: true };
+  const { isAuthenticated } = auth ?? { isLoading: true };
 
   return isLoading ?
     <LoadingNavigator />

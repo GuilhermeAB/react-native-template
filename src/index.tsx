@@ -4,21 +4,26 @@ import { NavigationContainer } from '@react-navigation/native';
 import store, { AppState } from 'store/';
 import AppNavigator from 'navigation/app.navigator';
 import { Provider as PaperProvider } from 'react-native-paper';
-import { ThemeState } from 'store/theme';
+import { ThemeState, initialState } from 'store/theme';
 import FlashMessage from 'react-native-flash-message';
+import './i18n';
 
 export type Props = {
   theme: ThemeState,
 };
 
-const AppWrapper = ({ theme }: Props): any =>
-  <PaperProvider theme={theme.style}>
-    <NavigationContainer>
-      <AppNavigator />
-      <FlashMessage position='top' />
-    </NavigationContainer>
-  </PaperProvider>
-;
+const AppWrapper = (props?: Props): any => {
+  const { theme } = props ?? { theme: initialState };
+
+  return (
+    <PaperProvider theme={theme.style}>
+      <NavigationContainer>
+        <AppNavigator />
+        <FlashMessage position='top' />
+      </NavigationContainer>
+    </PaperProvider>
+  );
+};
 
 const mapStateToProps = (state: AppState): any => ({
   theme: state.theme,

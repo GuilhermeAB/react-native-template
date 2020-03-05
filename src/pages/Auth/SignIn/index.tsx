@@ -12,9 +12,12 @@ import Button from 'components/Button';
 import TextField from 'components/Inputs/TextField';
 import { AppState } from 'store/';
 import DotBackground from 'components/DotBackground';
+import { useTranslation } from 'react-i18next';
 import { SignInLogo } from './styles';
 
 const SignIn = ({ signIn }: SignInProps): any => {
+  const { t } = useTranslation();
+
   const [userName, onChangeUserName] = useState();
   const [userPassword, onChangeUserPassword] = useState();
 
@@ -32,11 +35,11 @@ const SignIn = ({ signIn }: SignInProps): any => {
             <SignInLogo width={150} height={150} />
           </Row>
           <Col>
-            <Headline>Login</Headline>
+            <Headline>{t('LOGIN')}</Headline>
             <TextField
               autoCompleteType='username'
               clearButtonMode='while-editing'
-              label='Username'
+              label={t('USERNAME')}
               onChangeText={(text: string): void => onChangeUserName(text)}
               value={userName}
             />
@@ -45,14 +48,14 @@ const SignIn = ({ signIn }: SignInProps): any => {
               secureTextEntry={true}
               clearButtonMode='while-editing'
               returnKeyType='done'
-              label='Password'
+              label={t('PASSWORD')}
               mt='1'
               onChangeText={(text: string): void => onChangeUserPassword(text)}
               value={userPassword}
             />
 
             <Button mode='text'>
-              <Caption>Forgot your password?</Caption>
+              <Caption>{t('FORGOT_PASSWORD?')}</Caption>
             </Button>
 
             <Button
@@ -60,10 +63,10 @@ const SignIn = ({ signIn }: SignInProps): any => {
               mode='contained'
               onPress={(): void => logIn()}
             >
-              Login
+              {t('LOGIN')}
             </Button>
 
-            <Button mt='1' mode='text'>Don&apos;t have an account? Sign up</Button>
+            <Button mt='1' mode='text'>{t('DONT_HAVE_ACCOUNT?')}</Button>
           </Col>
         </Col>
       </Grid>

@@ -2,29 +2,29 @@ import styled from 'styled-components';
 import { Row } from 'components/Grid';
 import { TouchableRipple } from 'react-native-paper';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { ThemeState } from 'store/theme';
+import { HomeTabProps } from '.';
 
-type Props = { isActive: boolean, theme: ThemeState, };
+type IsActive = { isActive: boolean, };
 
 export const BottomNavigator = styled(Row)``;
 
-export const Button = styled(TouchableRipple)<Props>`
+export const Button = styled(TouchableRipple)<HomeTabProps>`
     flex: 1;
     justify-content: center;
     border-radius: 0;
-    background-color: ${(props: Props ): string => props.theme.style.colors.primary};
+    background-color: ${({ theme }: HomeTabProps ): string | undefined => theme?.style.colors.primary};
 `;
 // background-color: ${(props: Props ): string => props.isActive ? props.theme.style.colors.accent : props.theme.style.colors.primary};
 
-export const Icon = styled(MaterialIcon)<Props>`
+export const Icon = styled(MaterialIcon)<HomeTabProps & IsActive>`
     font-size: 20px;
     align-self: center;
     color: ${
-  (props: Props): string => {
-    if (props.isActive) {
+  ({ isActive, theme }: HomeTabProps & IsActive): string | undefined => {
+    if (isActive) {
       return '#fff';
     }
-    return props.theme.style.colors.accent;
+    return theme?.style.colors.accent;
   }
 };
 `;

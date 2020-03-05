@@ -6,6 +6,7 @@ import { Themes, ThemeState, changeThemeAction } from 'store/theme';
 import { AppState } from 'store/';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { useTranslation } from 'react-i18next';
 
 export type AccountProps = {
   theme: ThemeState,
@@ -13,6 +14,8 @@ export type AccountProps = {
 };
 
 const Account = ({ theme, changeTheme }: AccountProps): any => {
+  const { t } = useTranslation();
+
   function toggleTheme (): void {
     if (theme.name === Themes.LIGHT_THEME) {
       changeTheme(Themes.DARK_THEME);
@@ -25,7 +28,9 @@ const Account = ({ theme, changeTheme }: AccountProps): any => {
     <DotBackground>
       <Grid width={[1]}>
         <Col px='20px'>
-          <Button mt='1' mode='contained' onPress={(): void => toggleTheme()}>Toggle Theme</Button>
+          <Button mt='1' mode='contained' onPress={(): void => toggleTheme()}>
+            {t('TOGGLE_THEME')}
+          </Button>
         </Col>
       </Grid>
     </DotBackground>

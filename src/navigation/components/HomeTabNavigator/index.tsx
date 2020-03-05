@@ -9,10 +9,10 @@ import { ThemeState } from 'store/theme';
 import { BottomNavigator, Button, Icon } from './styles';
 
 export type HomeTabProps = {
-  theme: ThemeState,
-} & BottomTabBarProps;
+  theme?: ThemeState,
+};
 
-const HomeTabNavigator = ({ state, navigation, theme }: HomeTabProps): React.ReactElement => {
+const HomeTabNavigator = ({ state, navigation, theme }: HomeTabProps & BottomTabBarProps): React.ReactElement => {
   function navigateTo (routeName: string): void {
     navigation.navigate(routeName);
   }
@@ -21,7 +21,6 @@ const HomeTabNavigator = ({ state, navigation, theme }: HomeTabProps): React.Rea
     <BottomNavigator height={50}>
       <Button
         theme={theme}
-        isActive={state.index === 0}
         onPress={(): void => navigateTo(AppRoute.HOME)}
       >
         <Icon
@@ -32,7 +31,6 @@ const HomeTabNavigator = ({ state, navigation, theme }: HomeTabProps): React.Rea
       </Button>
       <Button
         theme={theme}
-        isActive={state.index === 1}
         onPress={(): void => navigateTo(AppRoute.SETTINGS)}
       >
         <Icon
@@ -43,7 +41,6 @@ const HomeTabNavigator = ({ state, navigation, theme }: HomeTabProps): React.Rea
       </Button>
       <Button
         theme={theme}
-        isActive={state.index === 2}
         onPress={(): void => navigateTo(AppRoute.ACCOUNT)}
       >
         <Icon
