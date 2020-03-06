@@ -7,13 +7,15 @@ import { AppState } from 'store/';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { useTranslation } from 'react-i18next';
+import { SignOutAction } from 'store/auth';
 
 export type AccountProps = {
   theme: ThemeState,
   changeTheme: (name: Themes) => void,
+  signOut: () => void,
 };
 
-const Account = ({ theme, changeTheme }: AccountProps): any => {
+const Account = ({ theme, changeTheme, signOut }: AccountProps): any => {
   const { t } = useTranslation();
 
   function toggleTheme (): void {
@@ -28,6 +30,9 @@ const Account = ({ theme, changeTheme }: AccountProps): any => {
     <DotBackground>
       <Grid width={[1]}>
         <Col px='20px'>
+          <Button mt='1' mode='contained' onPress={(): void => signOut()}>
+            {t('SIGN_OUT')}
+          </Button>
           <Button mt='1' mode='contained' onPress={(): void => toggleTheme()}>
             {t('TOGGLE_THEME')}
           </Button>
@@ -45,6 +50,9 @@ const mapStateToProps = (state: AppState, props: AccountProps): any => ({
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
   changeTheme: (name: Themes): void => {
     dispatch(ChangeThemeAction(name));
+  },
+  signOut: (): void => {
+    dispatch(SignOutAction());
   },
 });
 

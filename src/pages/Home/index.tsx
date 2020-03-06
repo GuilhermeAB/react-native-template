@@ -1,35 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { SignOutAction } from 'store/auth';
 import DotBackground from 'components/DotBackground';
-import { Grid, Col } from 'components/Grid';
-import Button from 'components/Button';
+import { Grid } from 'components/Grid';
+import Empty from 'src/assets/taken.svg';
+import { Title } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 
-const Home = ({
-  signOut,
-}: any): any => {
+const Home = (): any => {
   const { t } = useTranslation();
-
 
   return (
     <DotBackground>
-      <Grid width={[1]}>
-        <Col px='20px'>
-          <Button mt='1' mode='contained' onPress={(): void => signOut()}>
-            {t('SIGN_OUT')}
-          </Button>
-        </Col>
+      <Title>{t('HOME')}</Title>
+      <Grid width={[1]} alignItems='center' justifyContent='center'>
+        <Empty width='50%' />
       </Grid>
     </DotBackground>
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): any => ({
-  signOut: (): void => {
-    dispatch(SignOutAction());
-  },
-});
-
-export default connect(undefined, mapDispatchToProps)(Home);
+export default Home;

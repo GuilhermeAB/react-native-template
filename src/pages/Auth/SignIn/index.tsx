@@ -6,6 +6,7 @@ import { SignInProps } from 'navigation/auth.navigator';
 import {
   Headline,
   Caption,
+  Divider,
 } from 'react-native-paper';
 import { Grid, Col, Row } from 'components/Grid';
 import Button from 'components/Button';
@@ -13,6 +14,7 @@ import TextField from 'components/Inputs/TextField';
 import { AppState } from 'store/';
 import DotBackground from 'components/DotBackground';
 import { useTranslation } from 'react-i18next';
+import ChangeLanguage from 'components/ChangeLanguage';
 import { SignInLogo } from './styles';
 
 const SignIn = ({ signIn }: SignInProps): any => {
@@ -29,10 +31,10 @@ const SignIn = ({ signIn }: SignInProps): any => {
 
   return (
     <DotBackground>
-      <Grid width={[1]} d='flex' alignItems='center'>
+      <Grid width={[1]} display='flex' alignItems='center'>
         <Col px='20px'>
           <Row alignItems='center' justifyContent='center' height={200}>
-            <SignInLogo width={150} height={150} />
+            <SignInLogo width={230} mt={3} />
           </Row>
           <Col>
             <Headline>{t('LOGIN')}</Headline>
@@ -66,7 +68,11 @@ const SignIn = ({ signIn }: SignInProps): any => {
               {t('LOGIN')}
             </Button>
 
-            <Button mt='1' mode='text'>{t('DONT_HAVE_ACCOUNT?')}</Button>
+            <Button mt='1' mb='4' mode='text'>{t('DONT_HAVE_ACCOUNT?')}</Button>
+
+            <Divider />
+
+            <ChangeLanguage />
           </Col>
         </Col>
       </Grid>

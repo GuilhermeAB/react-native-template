@@ -1,9 +1,9 @@
 import React from 'react';
 import { RowProps } from 'react-native-easy-grid';
-import { StylesProps } from 'styled-system';
+import { LayoutProps, SpaceProps, ColorProps, FlexboxProps } from 'styled-system';
 import Line from './styles';
 
-const Row = (props?: RowProps & StylesProps & any): any =>
+const Row = (props?: RowProps & FlexboxProps & LayoutProps & SpaceProps & ColorProps & { children?: any, }): any =>
   <Line {...props}>
     {props?.children}
   </Line>

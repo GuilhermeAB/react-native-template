@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native-paper';
 import DotBackground from 'components/DotBackground';
-import { Grid, Col } from 'components/Grid';
+import { Grid } from 'components/Grid';
+import Empty from 'src/assets/taken.svg';
+import { Title } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 
 const Settings = (): any => {
@@ -9,14 +10,12 @@ const Settings = (): any => {
 
   return (
     <DotBackground>
-      <Grid width={[1]}>
-        <Col px='20px'>
-          <Text>{t('SETTINGS')}</Text>
-        </Col>
+      <Title>{t('SETTINGS')}</Title>
+      <Grid width={[1]} alignItems='center' justifyContent='center'>
+        <Empty width='50%' />
       </Grid>
     </DotBackground>
   );
 };
-
 
 export default Settings;

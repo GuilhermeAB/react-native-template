@@ -1,11 +1,15 @@
 {
   "LOGIN": "Log in",
   "SIGN_OUT": "Sign out",
+  "HOME": "Home",
   "TOGGLE_THEME": "Toggle theme",
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "FORGOT_PASSWORD?": "Forgot your password?",
   "DONT_HAVE_ACCOUNT?": "Don't have an account? Sign up",
   "SETTINGS": "Settings",
-  "WELCOME": "Welcome"
+  "ERR_CANNOT_CHANGE_LANGUAGE": "Cannot change language. Try again later",
+  "SELECT_LANGUAGE": "Select language",
+  "I18N_ENGLISH": "English",
+  "I18N_PORTUGUESE_BR": "Português (BR)"
 }

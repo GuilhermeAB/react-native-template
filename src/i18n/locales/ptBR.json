@@ -1,0 +1,15 @@
+{
+  "LOGIN": "Conectar",
+  "SIGN_OUT": "Desconectar",
+  "HOME": "Início",
+  "TOGGLE_THEME": "Alterar tema",
+  "USERNAME": "Nome do usuário",
+  "PASSWORD": "Senha",
+  "FORGOT_PASSWORD?": "Esqueceu sua senha?",
+  "DONT_HAVE_ACCOUNT?": "Não possui uma conta? Registre-se",
+  "SETTINGS": "Configurações",
+  "ERR_CANNOT_CHANGE_LANGUAGE": "Não foi possível alterar a linguagem. Tente novamente mais tarde",
+  "SELECT_LANGUAGE": "Selecionar linguagem",
+  "I18N_ENGLISH": "English",
+  "I18N_PORTUGUESE_BR": "Português (BR)"
+}

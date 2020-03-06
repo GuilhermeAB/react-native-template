@@ -1,12 +1,12 @@
 import React from 'react';
-import { ButtonProps } from 'react-native';
-import { StylesProps } from 'styled-system';
 import { AppState } from 'store/';
 import { ThemeState } from 'store/theme';
 import { connect } from 'react-redux';
+import { SpaceProps, LayoutProps, ColorProps } from 'styled-system';
+import { ButtonProps } from 'react-native';
 import Btn from './styles';
 
-export type BtnProps = ButtonProps & StylesProps & any & ThemeState;
+export type BtnProps = ButtonProps & SpaceProps & LayoutProps & ColorProps & ThemeState & { children?: any, } & any;
 
 const Button = (props?: BtnProps): any =>
   <Btn p='4px' {...props}>

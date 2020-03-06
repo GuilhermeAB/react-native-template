@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Grid } from 'react-native-easy-grid';
-import { space, layout, color } from 'styled-system';
+import { space, layout, color, SpaceProps, LayoutProps, ColorProps, flexbox, FlexboxProps } from 'styled-system';
 
-export default styled(Grid)`
+export default styled(Grid)<SpaceProps & LayoutProps & ColorProps & FlexboxProps>`
     ${space}
     ${layout}
     ${color}
+    ${flexbox}
 `;
