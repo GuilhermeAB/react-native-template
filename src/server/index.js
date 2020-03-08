@@ -30,6 +30,7 @@ export function makeMockServer ({ environment = 'mock' } = {}) {
               NAME: `${firstName} ${lastName}`,
               EMAIL: faker.internet.email(),
               LOGIN: faker.internet.userName(),
+              TOKEN: faker.random.uuid(),
               AVATAR: faker.internet.avatar(),
               COUNTRY: faker.address.country(),
             },

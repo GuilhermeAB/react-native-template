@@ -52,6 +52,7 @@ module.exports = {
     'import/extensions': 0,
     'react-native/no-raw-text': 0,
     'global-require': 0,
+    'react-native/no-inline-styles': 0,
   },
   overrides: [
     // Jest - tests

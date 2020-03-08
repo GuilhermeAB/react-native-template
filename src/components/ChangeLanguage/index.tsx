@@ -35,7 +35,9 @@ const ChangeLanguage = (BtnProps?: any & { ChangeCurrentLanguage: Function, }): 
   return (
     <Grid mt='3'>
       <Col alignItems='flex-end'>
-        <Button compact mode='contained' icon='translate' onPress={(): void => setVisibilty(true)} {...BtnProps} />
+        <Button compact mode='contained' icon='translate' onPress={(): void => setVisibilty(true)} {...BtnProps}>
+          {BtnProps?.children}
+        </Button>
       </Col>
 
       <Portal>

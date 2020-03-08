@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { Row } from 'components/Grid';
 import { TouchableRipple } from 'react-native-paper';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { StyledRowProps } from 'components/Grid/Row/styles';
 import { HomeTabProps } from '.';
 
 type IsActive = { isActive: boolean, };
 
-export const BottomNavigator = styled(Row)``;
+export const BottomNavigator = styled(Row)<StyledRowProps>``;
 
 export const Button = styled(TouchableRipple)<HomeTabProps>`
     flex: 1;

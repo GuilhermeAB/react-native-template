@@ -1,14 +1,14 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
-import { StylesProps } from 'styled-system';
+import { LayoutProps, SpaceProps, ColorProps, FlexboxProps } from 'styled-system';
 import { connect } from 'react-redux';
 import { ThemeState } from 'store/theme';
 import { AppState } from 'store/';
+import { TextInputProps } from 'react-native';
 import TextInput from './styles';
 
-export type TextFieldProps = TextInputProps & StylesProps & any & ThemeState;
+export type TextFieldProps = TextInputProps & FlexboxProps & LayoutProps & SpaceProps & ColorProps & { theme?: ThemeState, } & any;
 
-const TextField = (props?: TextInputProps): any =>
+const TextField = (props?: TextFieldProps): any =>
   <TextInput mode='outlined' {...props} />
 ;
 

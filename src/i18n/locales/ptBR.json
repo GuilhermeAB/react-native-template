@@ -8,11 +8,18 @@
   "FORGOT_PASSWORD?": "Esqueceu sua senha?",
   "DONT_HAVE_ACCOUNT?": "Não possui uma conta? Registre-se",
   "SETTINGS": "Configurações",
+  "LANGUAGE": "Linguagem",
   "ERR_CANNOT_CHANGE_LANGUAGE": "Não foi possível alterar a linguagem. Tente novamente mais tarde",
   "SELECT_LANGUAGE": "Selecionar linguagem",
   "I18N_ENGLISH": "English",
   "I18N_PORTUGUESE_BR": "Português (BR)",
   "WELCOME": "Bem vindo(a)",
   "INVALID_USERNAME_PASSWORD": "Nome de usuário e senha inválidos. Verifique-os e tente novamente",
-  "INFORM_USERNAME_PASSWORD": "Informe nome de usuário e senha"
+  "INFORM_USERNAME_PASSWORD": "Informe nome de usuário e senha",
+  "LIGHT_THEME": "Tema claro",
+  "DARK_THEME": "Tema escuro",
+  "PROFILE": "Perfil",
+  "CANCEL": "Cancelar",
+  "CONFIRM": "Confirmar",
+  "REALLY_WANT_DISCONNECT?": "Deseja mesmo desconectar?"
 }

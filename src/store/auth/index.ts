@@ -4,6 +4,15 @@ import { request } from 'util/request/request';
 
 export type AuthState = {
   isAuthenticated: boolean,
+  user?: {
+    id: number,
+    name: string,
+    email: string,
+    login: string,
+    token: string,
+    avatar: string,
+    country?: string,
+  },
 };
 
 const SIGN_IN = 'SIGN_IN';
@@ -32,6 +41,7 @@ const reducer = (state: AuthState = initialState, action: AuthAction): AuthState
     case SIGN_IN:
       return {
         isAuthenticated: true,
+        user: action.auth.user,
       };
     case SIGN_OUT:
       return {
@@ -48,7 +58,7 @@ export default reducer;
 
 export const SignInAction = async (username: string, password: string): Promise<AuthAction> => {
   try {
-    await request({
+    const response = await request({
       url: 'Login',
       params: {
         USERNAME: username,
@@ -56,10 +66,21 @@ export const SignInAction = async (username: string, password: string): Promise<
       },
     });
 
+    const { USER } = response.data;
+
     return {
       type: SIGN_IN,
       auth: {
         isAuthenticated: true,
+        user: {
+          id: USER.ID,
+          name: USER.NAME,
+          email: USER.EMAIL,
+          login: USER.LOGIN,
+          token: USER.TOKEN,
+          avatar: USER.AVATAR,
+          country: USER.COUNTRY,
+        },
       },
     };
   } catch (e) {

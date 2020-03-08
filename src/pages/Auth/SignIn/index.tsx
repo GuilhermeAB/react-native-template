@@ -45,6 +45,7 @@ const SignIn = (props: SignInProps): any => {
               autoCompleteType='username'
               clearButtonMode='while-editing'
               label={t('USERNAME')}
+              returnKeyType='next'
               onChangeText={(text: string): void => onChangeUsername(text)}
               value={username}
             />
