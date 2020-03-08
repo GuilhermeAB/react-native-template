@@ -11,5 +11,8 @@
   "ERR_CANNOT_CHANGE_LANGUAGE": "Cannot change language. Try again later",
   "SELECT_LANGUAGE": "Select language",
   "I18N_ENGLISH": "English",
-  "I18N_PORTUGUESE_BR": "Português (BR)"
+  "I18N_PORTUGUESE_BR": "Português (BR)",
+  "WELCOME": "Welcome",
+  "INVALID_USERNAME_PASSWORD": "Invalid username and password. Check them and try again",
+  "INFORM_USERNAME_PASSWORD": "Inform your username and password"
 }

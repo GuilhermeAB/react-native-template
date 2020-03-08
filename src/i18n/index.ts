@@ -1,24 +1,25 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import store from 'store/';
+import { LangKeys } from 'store/i18n';
 import en from './locales/en.json';
 import ptBR from './locales/ptBR.json';
 
 const resources = {
-  en: {
+  [LangKeys.EN]: {
     translation: en,
   },
-  ptBR: {
+  [LangKeys.PTBR]: {
     translation: ptBR,
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18n
   .use(initReactI18next)
   .init({
     resources: resources,
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: store.getState().i18n.lang,
+    fallbackLng: store.getState().i18n.lang,
   });
 
 export default i18n;

@@ -90,6 +90,8 @@ module.exports = {
         '@typescript-eslint/consistent-type-definitions': 0,
         '@typescript-eslint/default-param-last': 0,
         '@typescript-eslint/no-require-imports': 0,
+        '@typescript-eslint/no-unnecessary-condition': 0,
+        '@typescript-eslint/no-floating-promises': 0,
       },
     },
   ],

@@ -5,8 +5,11 @@ import Button from 'components/Button';
 import i18n from 'i18n';
 import { showMessage } from 'react-native-flash-message';
 import { Grid, Col } from 'components/Grid';
+import { LangKeys, ChangeLanguageAction } from 'store/i18n';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
-const ChangeLanguage = (BtnProps?: any): any => {
+const ChangeLanguage = (BtnProps?: any & { ChangeCurrentLanguage: Function, }): any => {
   const { t } = useTranslation();
 
   const [isVisible, setVisibilty] = useState();
@@ -14,6 +17,7 @@ const ChangeLanguage = (BtnProps?: any): any => {
   function saveLanguage (lng: string): void {
     i18n.changeLanguage(lng).then(
       () => {
+        BtnProps.ChangeCurrentLanguage(lng);
         setVisibilty(false);
       },
       () => {
@@ -42,11 +46,11 @@ const ChangeLanguage = (BtnProps?: any): any => {
             <List.Section>
               <List.Item
                 title={t('I18N_ENGLISH')}
-                onPress={(): void => saveLanguage('en')}
+                onPress={(): void => saveLanguage(LangKeys.EN)}
               />
               <List.Item
                 title={t('I18N_PORTUGUESE_BR')}
-                onPress={(): void => saveLanguage('ptBR')}
+                onPress={(): void => saveLanguage(LangKeys.PTBR)}
               />
             </List.Section>
           </Dialog.Content>
@@ -56,5 +60,10 @@ const ChangeLanguage = (BtnProps?: any): any => {
   );
 };
 
+const mapDispatchToProps = (dispatch: Dispatch): any => ({
+  ChangeCurrentLanguage: (lang: LangKeys): void => {
+    dispatch(ChangeLanguageAction(lang));
+  },
+});
 
-export default ChangeLanguage;
+export default connect(undefined, mapDispatchToProps)(ChangeLanguage);

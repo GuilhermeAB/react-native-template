@@ -1,5 +1,4 @@
-import { showMessage } from 'react-native-flash-message';
-import i18n from 'i18n';
+import { request } from 'util/request/request';
 
 // Action Types
 
@@ -47,20 +46,30 @@ export default reducer;
 
 // Actions
 
-export const SignInAction = (): AuthAction => {
-  showMessage({
-    message: i18n.t('WELCOME'),
-    icon: 'success',
-    type: 'success',
-    duration: 1500,
-  });
+export const SignInAction = async (username: string, password: string): Promise<AuthAction> => {
+  try {
+    await request({
+      url: 'Login',
+      params: {
+        USERNAME: username,
+        PASSWORD: password,
+      },
+    });
 
-  return {
-    type: SIGN_IN,
-    auth: {
-      isAuthenticated: true,
-    },
-  };
+    return {
+      type: SIGN_IN,
+      auth: {
+        isAuthenticated: true,
+      },
+    };
+  } catch (e) {
+    return {
+      type: SIGN_OUT,
+      auth: {
+        isAuthenticated: false,
+      },
+    };
+  }
 };
 
 export const SignOutAction = (): AuthAction => ({

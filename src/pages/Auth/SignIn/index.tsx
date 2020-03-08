@@ -17,15 +17,18 @@ import { useTranslation } from 'react-i18next';
 import ChangeLanguage from 'components/ChangeLanguage';
 import { SignInLogo } from './styles';
 
-const SignIn = ({ signIn }: SignInProps): any => {
+const SignIn = (props: SignInProps): any => {
+  const { signIn } = props;
   const { t } = useTranslation();
 
-  const [userName, onChangeUserName] = useState();
-  const [userPassword, onChangeUserPassword] = useState();
+  const [username, onChangeUsername] = useState();
+  const [password, onChangePassword] = useState();
 
-  function logIn (): void {
-    if (signIn) {
-      signIn();
+  async function logIn (): Promise<void> {
+    try {
+      await signIn(username, password);
+    } catch (e) {
+      throw new Error(e);
     }
   }
 
@@ -42,8 +45,8 @@ const SignIn = ({ signIn }: SignInProps): any => {
               autoCompleteType='username'
               clearButtonMode='while-editing'
               label={t('USERNAME')}
-              onChangeText={(text: string): void => onChangeUserName(text)}
-              value={userName}
+              onChangeText={(text: string): void => onChangeUsername(text)}
+              value={username}
             />
             <TextField
               autoCompleteType='password'
@@ -52,8 +55,8 @@ const SignIn = ({ signIn }: SignInProps): any => {
               returnKeyType='done'
               label={t('PASSWORD')}
               mt='1'
-              onChangeText={(text: string): void => onChangeUserPassword(text)}
-              value={userPassword}
+              onChangeText={(text: string): void => onChangePassword(text)}
+              value={password}
             />
 
             <Button mode='text'>
@@ -63,7 +66,7 @@ const SignIn = ({ signIn }: SignInProps): any => {
             <Button
               mt='3'
               mode='contained'
-              onPress={(): void => logIn()}
+              onPress={logIn}
             >
               {t('LOGIN')}
             </Button>
@@ -86,8 +89,8 @@ const mapStateToProps = (state: AppState, props: SignInProps): any => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
-  signIn: (): void => {
-    dispatch(SignInAction());
+  signIn: async (username: string, password: string): Promise<void> => {
+    dispatch(await SignInAction(username, password));
   },
 });
 

@@ -14,13 +14,12 @@ export interface SignInProps {
   navigation: StackNavigationProp<AuthNavigatorParams, AppRoute.SIGN_IN>,
   route: RouteProp<AuthNavigatorParams, AppRoute.SIGN_IN>,
   theme: ThemeState,
-  signIn?: Function,
+  signIn: Function,
 }
 
 const Stack = createStackNavigator<AuthNavigatorParams>();
 
-const screenOptions: StackNavigationOptions = {
-};
+const screenOptions: StackNavigationOptions = {};
 
 const AuthNavigator = (): React.ReactElement =>
   <Stack.Navigator headerMode='none' initialRouteName={AppRoute.SIGN_IN}>

@@ -6,7 +6,7 @@ import AppNavigator from 'navigation/app.navigator';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { ThemeState, initialState } from 'store/theme';
 import FlashMessage from 'react-native-flash-message';
-import './i18n';
+import i18n from './i18n';
 
 export type Props = {
   theme: ThemeState,
@@ -14,6 +14,7 @@ export type Props = {
 
 const AppWrapper = (props?: Props): any => {
   const { theme } = props ?? { theme: initialState };
+  i18n.changeLanguage(store.getState().i18n.lang);
 
   return (
     <PaperProvider theme={theme.style}>
