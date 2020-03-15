@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 const ChangeLanguage = (BtnProps?: any & { ChangeCurrentLanguage: Function, }): any => {
   const { t } = useTranslation();
 
-  const [isVisible, setVisibilty] = useState();
+  const [isVisible, setVisibilty] = useState<boolean>(false);
 
   function saveLanguage (lng: string): void {
     i18n.changeLanguage(lng).then(

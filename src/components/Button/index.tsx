@@ -9,7 +9,7 @@ import Btn from './styles';
 export type BtnProps = ButtonProps & SpaceProps & LayoutProps & ColorProps & ThemeState & { children?: any, } & any;
 
 const Button = (props?: BtnProps): any =>
-  <Btn p='4px' {...props}>
+  <Btn {...props}>
     {props?.children}
   </Btn>
 ;
